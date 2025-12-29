@@ -29,20 +29,9 @@ public final class LLMClient: Sendable {
         
         let requestData = try jsonEncoder.encode(request)
         urlRequest.httpBody = requestData
-        
-        print("--------------------")
-        print("SENDING REQUEST TO API:")
-        print(String(data: requestData, encoding: .utf8) ?? "Could not print request body")
-        print("--------------------")
-
 
         let (data, response) = try await urlSession.data(for: urlRequest)
-        
-        print("RECEIVED RESPONSE FROM API:")
-        print(String(data: data, encoding: .utf8) ?? "Could not print response body")
-        print("--------------------")
 
-        
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             // Error is already printed from the response log above.
             throw URLError(.badServerResponse, userInfo: [NSLocalizedDescriptionKey: "Server returned an error: \((response as? HTTPURLResponse)?.statusCode ?? -1). See console log for details."])
