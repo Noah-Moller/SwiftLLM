@@ -31,14 +31,14 @@ public final class LLMClient: Sendable {
         urlRequest.httpBody = requestData
         
         print("--------------------")
-        print("↗️ SENDING REQUEST TO API:")
+        print("SENDING REQUEST TO API:")
         print(String(data: requestData, encoding: .utf8) ?? "Could not print request body")
         print("--------------------")
 
 
         let (data, response) = try await urlSession.data(for: urlRequest)
         
-        print("↘️ RECEIVED RESPONSE FROM API:")
+        print("RECEIVED RESPONSE FROM API:")
         print(String(data: data, encoding: .utf8) ?? "Could not print response body")
         print("--------------------")
 
