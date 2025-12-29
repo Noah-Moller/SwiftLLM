@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
 </p>
 
-SwiftLLM is a lightweight, production-ready Swift library for working with Large Language Models (LLMs). Built by **Tetrix Technologies**, it provides a backend‑agnostic API modeled after Apple’s Foundation Models, so you can use the same friendly Swift interface with any OpenAI‑compatible provider—local or remote.
+SwiftLLM is a lightweight, production-ready Swift library for working with Large Language Models (LLMs). Built with production deployments in mind, it provides a backend‑agnostic API modeled after Apple’s Foundation Models, so you can use the same friendly Swift interface with any OpenAI‑compatible provider—local or remote.
 
 Use SwiftLLM across iOS and macOS for text generation, structured output, and tool calling with clean `async/await` APIs.
 
@@ -144,7 +144,3 @@ do {
 ## License
 
 MIT — see [LICENSE](LICENSE).
-
----
-
-A project by **Tetrix Technologies**.
