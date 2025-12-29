@@ -2,7 +2,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/platforms-macOS%20%7C%20iOS-lightgrey.svg" alt="Platforms">
-    <img src="https://img.shields.io/badge/Swift-5.7%2B-orange.svg" alt="Swift 5.7+">
+    <img src="https://img.shields.io/badge/Swift-5.7%2B-orange.svg" alt="Swift 5.10+">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
 </p>
 
@@ -18,12 +18,6 @@ Use SwiftLLM across iOS and macOS for text generation, structured output, and to
 - **Tool calling**: Register Swift tools; the session orchestrates calls automatically.
 - **State handled for you**: `UniversalLanguageModelSession` manages history and tool loops.
 - **Multi-platform**: iOS and macOS support out of the box.
-
-## Requirements
-
-- Swift 5.7+
-- macOS 12.0+
-- iOS 15.0+
 
 ## Installation
 
