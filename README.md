@@ -45,7 +45,7 @@ For client, add the package dependency using the Swift Package Manger in Xcode.
 import SwiftLLM
 
 let host = LLMHost.external(
-    baseURL: URL(string: "https://api.openai.com/v1")!,
+    baseURL: URL(string: "https://api.openai.com")!,
     apiKey: "YOUR_API_KEY",
     defaultModel: "gpt-4o"
 )
