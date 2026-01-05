@@ -29,12 +29,23 @@ public final class LLMClient: Sendable {
         
         let requestData = try jsonEncoder.encode(request)
         urlRequest.httpBody = requestData
+        
+        // Log request for debugging
+        if let requestString = String(data: requestData, encoding: .utf8) {
+            print("SwiftLLM Request: \(requestString)")
+        }
 
         let (data, response) = try await urlSession.data(for: urlRequest)
-
+        
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-            // Error is already printed from the response log above.
-            throw URLError(.badServerResponse, userInfo: [NSLocalizedDescriptionKey: "Server returned an error: \((response as? HTTPURLResponse)?.statusCode ?? -1). See console log for details."])
+            // Log error response for debugging
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
+            if let errorString = String(data: data, encoding: .utf8) {
+                print("SwiftLLM Error Response (\(statusCode)): \(errorString)")
+            } else {
+                print("SwiftLLM Error Response (\(statusCode)): (no error body)")
+            }
+            throw URLError(.badServerResponse, userInfo: [NSLocalizedDescriptionKey: "Server returned an error: \(statusCode). See console log for details."])
         }
         
         return try jsonDecoder.decode(OpenAI.ChatCompletionResponse.self, from: data)
